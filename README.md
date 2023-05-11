@@ -55,26 +55,63 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
+Step-1: create module encoder and decoder.
+
+Step-2: Get inputs and outputs for encoders and decoders.
+
+Step-3: perform or operation for encoder and and logic for decoders.
+
+Step-4: perform RTL LOGIC and get waveform.
+
+Step-5: End the module.
 
 
 
 ### PROGRAM 
-/*
+
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+```
+ENCODER:
 
+module enc(a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+or(a0,y7,y5,y3,y1);
+or(a1,y7,y6,y3,y2);
+or(a2,y7,y6,y5,y4);
+endmodule
 
+DECODER:
 
+module dec (a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input a0,a1,a2;
+output y0,y1,y2,y3,y4,y5,y6,y7;
+wire a0bar,a1bar,a2bar;
+not(a0bar,a0);
+not(a1bar,a1);
+not(a2bar,a2);
+and(y0,a0bar,a1bar,a2bar);
+and(y1,a0,a1bar,a2bar);
+and(y2,a0bar,a1,a2bar);
+and(y3,a0,a1,a2bar);
+and(y4,a0bar,a1bar,a2);
+and(y5,a0,a1bar,a2);
+and(y6,a0bar,a1,a2);
+and(y7,a0,a1,a2);
+endmodule
+```
 
+Developed by: KOUSALYA A.
+RegisterNumber:  212222230068
 
 
 ### RTL LOGIC  
 
+ENCODER:
+![Experiment-08- Encoders-and-decoders](enc1.png)
 
-
+DECODER:
+![Experiment-08- Encoders-and-decoders](dec1.png)
 
 
 
@@ -82,15 +119,11 @@ RegisterNumber:
 
 ### TIMING DIGRAMS  
 
+ENCODER:
+![Experiment-08- Encoders-and-decoders](enc2.png)
 
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
+DECODER:
+![Experiment-08- Encoders-and-decoders](dec2.png)
 
 ### RESULTS 
+Thus the program to design encoder and decoder is successfully completed.
